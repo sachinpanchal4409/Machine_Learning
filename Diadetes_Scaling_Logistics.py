@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jul  3 17:43:26 2024
+
+@author: Shailesh Panchal
+"""
+
 # Import required libraries
 import pandas as pd
 import numpy as np
@@ -6,6 +13,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import make_classification
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import make_pipeline
+from sklearn import svm
+from sklearn.ensemble import RandomForestClassifier
 import pickle
 # Download Dataset into dataset variable
 dataset=pd.read_csv("D:\project\Diabetese/diabetes_prediction_dataset.csv")
@@ -23,7 +32,7 @@ from sklearn.model_selection import train_test_split
 X_train,X_test,y_train,y_test=train_test_split(X,y,random_state=42,test_size=0.25,shuffle=True)
 
 X_train.head()
-model = make_pipeline(StandardScaler(), LogisticRegression())
+model = make_pipeline(StandardScaler(), RandomForestClassifier())
 # Use classifier for classification 
 #model=KNeighborsClassifier(n_neighbors=9)
 model.fit(X_train,y_train)
